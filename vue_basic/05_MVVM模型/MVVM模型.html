@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>MVVM模型</title>
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <h1>schoolName, {{name}}</h1>
+        <h1>schoolAddress, {{address}}</h1>
+        <h1>test, {{$emit}}</h1>
+        
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: 'WHU',
+                address:'wuhan'
+            }
+        })
+        console.log(vm);
+
+
+    </script>
+
+</body>
+
+</html>

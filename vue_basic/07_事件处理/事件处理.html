@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>事件处理</title>
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <h2>welcome {{name}}</h2>
+        <button @click="showInfo1">click to get information1</button>
+        <button @click="showInfo2($event)">click to get information2</button>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        new Vue({
+            el: '#root',
+            data: {
+                name: 'WHU'
+            },
+            methods:{
+                showInfo1(event){
+                    alert('hello my dear1')
+                },
+                showInfo2(number, event){
+                    console.log(event);
+
+                    alert('hello my dear', number)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

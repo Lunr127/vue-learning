@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>事件修饰符</title>
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        * {
+            margin-top: 20px;
+        }
+
+        .demo1 {
+            height: 50px;
+            background-color: skyblue;
+        }
+
+        .box1 {
+            padding: 5px;
+            background-color: skyblue;
+        }
+
+        .box2 {
+            padding: 5px;
+            background-color: orange;
+        }
+
+        .list {
+            width: 200px;
+            height: 200px;
+            background-color: peru;
+            overflow: auto;
+        }
+
+        li {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+        <h2>welcome to {{name}}</h2>
+        <a href="http://www.whu.edu.cn" @click.prevent="showInfo">click to show information</a>
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">click</button>
+        </div>
+        <button @click.once="showInfo">click</button>
+
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">click</button>
+        </div>
+
+        <ul @wheel.passive="demo" class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: '#root',
+            data: {
+                name: 'WHU'
+            },
+            methods: {
+                showInfo(e) {
+                    alert('hello my dear!')
+                },
+                showMsg(msg) {
+                    console.log(msg);
+                },
+                demo() {
+                    for (let i = 0; i < 10; i++) {
+                        console.log('tired');
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
