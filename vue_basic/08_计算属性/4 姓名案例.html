@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>姓名案例-属性</title>
+    <title>姓名案例-简写</title>
     <!--引入Vue-->
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
@@ -13,18 +13,22 @@
     <div id="root">
         姓：<input type="text" v-model="firstName"> <br><br>
         名：<input type="text" v-model="lastName"> <br><br>
-        姓名：<span>{{firstName}}-{{lastName}}</span>
+        姓名：<span>{{fullName}}</span>
     </div>
 
     <script type="text/javascript">
         Vue.config.productionTip = false
-        
-        new Vue({
+
+        const vm = new Vue({
             el: '#root',
             data: {
                 firstName: '张',
-                lastName:'三',
-
+                lastName: '三',
+            },
+            computed: {
+                fullName() {
+                    return this.firstName + this.lastName
+                }
             }
         })
     </script>
