@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>列表渲染</title>
+
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <ul>
+            <li v-for="p in persons" :key="p.id">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(value,key) in car" :key="key">
+                {{key}}-{{value}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: '001', name: 'zhangsan', age: '18' },
+                    { id: '002', name: 'lisi', age: '16' },
+                    { id: '003', name: 'wangwu', age: '25' },
+                ],
+                car: {
+                    name: 'auto',
+                    price: '80w',
+                    color: 'red'
+                },
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
